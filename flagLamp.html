@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>flag Lamp</title>
+</head>
+<body>
+<script>
+    class Baterry{
+        constructor() {
+        }
+        setEnergy(energy){
+            this.energy=energy;
+        }
+        getEnergy(){
+            return this.energy;
+        }
+        decreaseEnergy(){
+        if(this.energy>0){
+            this.energy--
+        }
+    }
+    }
+    class FlagLamp{
+        constructor() {
+            this.status = true;
+        }
+        setBaterry(baterry){
+            this.Baterry=baterry;
+        }
+        getInforBaterry(){
+            return this.Baterry.getEnergy();
+        }
+        turnOn(){
+            this.status=true;
+        }
+        turnOff(){
+            this.status=false
+        }
+        light(){
+            if (this.status){
+                this.Baterry.decreaseEnergy()
+            }
+        }
+    }
+    let baterry = new Baterry();
+    baterry.setEnergy(99);
+    let flagLamp= new FlagLamp();
+    flagLamp.setBaterry(baterry);
+    document.write("status : "+flagLamp.status+"<br>");
+    document.write("lamp baterry: "+flagLamp.getInforBaterry()+"<br>");
+    flagLamp.turnOff();
+    document.write("status : "+flagLamp.status+"<br>");
+    flagLamp.turnOn();
+    document.write("status : "+flagLamp.status+"<br>");
+    document.write("lamp baterry: "+flagLamp.getInforBaterry()+"<br>");
+    flagLamp.light();
+    document.write("lamp baterry: "+flagLamp.getInforBaterry()+"<br>");
+
+</script>
+</body>
+</html>
